@@ -22,7 +22,7 @@ $ pig -x local -f pregunta.pig
         >>> Escriba su respuesta a partir de este punto <<<
 */
 
-a = LOAD 'data.csv' USING PigStorage(',')
+u = LOAD 'data.csv' USING PigStorage(',')
         AS(col1:INT,
            col2:charArray,
            col3:charArray,
@@ -30,7 +30,6 @@ a = LOAD 'data.csv' USING PigStorage(',')
            col5:charArray,
            col6:INT);
 
-a = FOREACH a GENERATE col5;
-a = FILTER a BY SUBSTRING(col5,0,1) MATCHES '[b]';
-STORE a INTO 'output' USING PigStorage(',');
-
+u = FOREACH u GENERATE col5;
+u = FILTER u BY SUBSTRING(col5,0,1) MATCHES '[b]';
+STORE u INTO 'output' USING PigStorage(',');
